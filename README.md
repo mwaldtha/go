@@ -27,7 +27,7 @@ To build from the "src/github.com/mwaldtha/pwdsrv" directory:
     go build
 
 
-To run the testsfrom the "src/github.com/mwaldtha/pwdsrv" directory:
+To run the tests from the "src/github.com/mwaldtha/pwdsrv" directory:
     
     go test
 
