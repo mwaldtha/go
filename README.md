@@ -22,15 +22,15 @@ The server will return
 
 It can be built and tested using go from the command line. For example:
 
-To build:
+To build from the "src/github.com/mwaldtha/pwdsrv" directory:
     
     go build
 
 
-To run the tests:
+To run the testsfrom the "src/github.com/mwaldtha/pwdsrv" directory:
     
     go test
 
-To execute a built server:
+To execute a built server from the "bin" directory (and specify a port):
    
-    pwdsrv.exe -port 8080
+    pwdsrv.exe -port 8888
