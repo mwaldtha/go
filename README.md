@@ -30,6 +30,9 @@ To build from the "src/github.com/mwaldtha/pwdsrv" directory:
 To run the tests from the "src/github.com/mwaldtha/pwdsrv" directory:
     
     go test
+or
+
+    go test -test.v
 
 To execute a built server from the "bin" directory (and specify a port):
    
