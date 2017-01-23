@@ -13,6 +13,7 @@ import (
 	"time"
 )
 
+//data for testing the actual hash/encoding process
 var testPasswords = []struct {
 	originalValue string
 	expectedValue string
@@ -27,6 +28,7 @@ var testPasswords = []struct {
 	{"ReallyLongPassword-ReallyLongPassword-ReallyLongPassword-ReallyLongPassword-ReallyLongPassword-ReallyLongPassword-ReallyLongPassword-ReallyLongPassword-ReallyLongPassword-ReallyLongPassword-ReallyLongPassword-", "KdRKHNcXx99I4FTpdQxqk4203FR1L8FwHDX0ovkuTB675g1c/BLMa78FSRguc6Ha/yIEF3+OxrFPnnSQqTML9A=="},
 }
 
+//data for testing how the HashHandler responds to various http methods
 var hashHandlerHttpMethods = []struct {
 	methodName   string
 	expectedCode int
@@ -39,6 +41,7 @@ var hashHandlerHttpMethods = []struct {
 	{http.MethodPatch, http.StatusMethodNotAllowed},
 }
 
+//data for testing how the StatsHandler responds to various http methods
 var statsHandlerHttpMethods = []struct {
 	methodName   string
 	expectedCode int
@@ -51,6 +54,7 @@ var statsHandlerHttpMethods = []struct {
 	{http.MethodPatch, http.StatusMethodNotAllowed},
 }
 
+//Test to pass a simulated request through the HashHandler, hitting the POST processing code
 func TestHashHandlerPost(t *testing.T) {
 	handler := new(HashHandler)
 	hashStats.Store(&HashStat{Total: 0, Average: 0})
@@ -86,6 +90,7 @@ func TestHashHandlerPost(t *testing.T) {
 	}
 }
 
+//Test to pass a simulated request through the HashHandler, hitting the GET processing code
 func TestHashHandlerGet(t *testing.T) {
 	handler := new(HashHandler)
 	count := int32(0)
@@ -113,6 +118,7 @@ func TestHashHandlerGet(t *testing.T) {
 	}
 }
 
+//Test to pass a simulated request through the StatsHandler, hitting the GET processing code
 func TestStatsHandlerGet(t *testing.T) {
 	handler := new(StatsHandler)
 
@@ -174,8 +180,7 @@ func TestHashHandlerHTTPMethods(t *testing.T) {
 	}
 }
 
-// Test how the StatsHandler responds to various HTTP methods
-// without starting up a server
+// Test how the StatsHandler responds to various HTTP methods without starting up a server
 func TestStatsHandlerHTTPMethods(t *testing.T) {
 	handler := new(StatsHandler)
 	hashStats.Store(&HashStat{Total: 0, Average: 0})
